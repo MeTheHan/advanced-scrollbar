@@ -11,8 +11,8 @@
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @run-at       document-start
-// @updateURL    https://githubusercontent.com
-// @downloadURL  https://githubusercontent.com
+// @updateURL    https://github.com/MeTheHan/advanced-scrollbar/raw/refs/heads/main/advanced-scrollbar%20v21.user.js
+// @downloadURL  https://github.com/MeTheHan/advanced-scrollbar/raw/refs/heads/main/advanced-scrollbar%20v21.user.js
 // ==/UserScript==
 
 (function () {
