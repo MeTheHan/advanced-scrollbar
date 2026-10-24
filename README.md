@@ -7,7 +7,7 @@ It is a single file with no dependencies, makes no network requests, and runs on
 ## Installation
 
 1. Install a userscript manager. The script is written for [Tampermonkey](https://www.tampermonkey.net/). It uses the synchronous `GM_addStyle`, `GM_getValue`, `GM_setValue` and `GM_registerMenuCommand` functions, so Violentmonkey should also work. Greasemonkey 4 does not provide the synchronous storage functions and is not supported.
-2. Open `mtechno-scrollbar.user.js` in this repository and choose **Raw**. The userscript manager will offer to install it.
+2. Open `advanced-scrollbar v21.user.js` in this repository and choose **Raw**. The userscript manager will offer to install it.
 3. Reload the pages you want to use it on.
 
 To update, install the newer file. Settings and saved data are kept.
