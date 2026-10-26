@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MTechno Absolute Control & Glass UI
 // @namespace    http://tampermonkey.net/
-// @version      21.0
+// @version      21.1
 // @description  Windows-style stable scrollbar (vertical + horizontal) with smooth scrolling, section markers, selection markers, your own pins, "resume where you left off", a "back to where you were" chip, auto light/dark glass theme, lite mode for slow machines, high-contrast support, fail-open safety net and diagnostics.
 // @author       Metehan
 // @match        *://*/*
@@ -11,12 +11,20 @@
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @run-at       document-start
-// @updateURL    https://github.com/MeTheHan/advanced-scrollbar/raw/refs/heads/main/advanced-scrollbar%20v21.user.js
-// @downloadURL  https://github.com/MeTheHan/advanced-scrollbar/raw/refs/heads/main/advanced-scrollbar%20v21.user.js
+// @updateURL    https://raw.githubusercontent.com/MeTheHan/advanced-scrollbar/main/advanced-scrollbar.user.js
+// @downloadURL  https://raw.githubusercontent.com/MeTheHan/advanced-scrollbar/main/advanced-scrollbar.user.js
 // ==/UserScript==
 
-(function () {
+(function boot() {
     'use strict';
+
+    // Some userscript managers (notably in Firefox) can run document-start code before <html> exists.
+    // Wait for it instead of giving up silently.
+    if (!document.documentElement) {
+        const wait = new MutationObserver(() => { if (document.documentElement) { wait.disconnect(); boot(); } });
+        wait.observe(document, { childList: true });
+        return;
+    }
 
     /* -----------------------------------------------------------------------
        PRE-FLIGHT CHECKS
